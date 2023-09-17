@@ -18,6 +18,11 @@
 		F50010FB2AAFA1270040FBD7 /* DirectoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50010FA2AAFA1270040FBD7 /* DirectoryController.swift */; };
 		F50010FE2AB082E80040FBD7 /* DirectoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50010FD2AB082E80040FBD7 /* DirectoryCell.swift */; };
 		F50011002AB0B1410040FBD7 /* DirectoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50010FF2AB0B1410040FBD7 /* DirectoryModel.swift */; };
+		F50011442AB770830040FBD7 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50011432AB770830040FBD7 /* GradientView.swift */; };
+		F50011472AB784C80040FBD7 /* GroupMusclesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50011462AB784C80040FBD7 /* GroupMusclesModel.swift */; };
+		F50011492AB787C10040FBD7 /* ListMusclesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50011482AB787C10040FBD7 /* ListMusclesController.swift */; };
+		F500114B2AB78BB30040FBD7 /* ListMusclesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500114A2AB78BB30040FBD7 /* ListMusclesCell.swift */; };
+		F500114E2AB799BB0040FBD7 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500114D2AB799BB0040FBD7 /* CalendarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +38,11 @@
 		F50010FA2AAFA1270040FBD7 /* DirectoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryController.swift; sourceTree = "<group>"; };
 		F50010FD2AB082E80040FBD7 /* DirectoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryCell.swift; sourceTree = "<group>"; };
 		F50010FF2AB0B1410040FBD7 /* DirectoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryModel.swift; sourceTree = "<group>"; };
+		F50011432AB770830040FBD7 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		F50011462AB784C80040FBD7 /* GroupMusclesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMusclesModel.swift; sourceTree = "<group>"; };
+		F50011482AB787C10040FBD7 /* ListMusclesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMusclesController.swift; sourceTree = "<group>"; };
+		F500114A2AB78BB30040FBD7 /* ListMusclesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMusclesCell.swift; sourceTree = "<group>"; };
+		F500114D2AB799BB0040FBD7 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +76,11 @@
 		F50010DF2AAF97200040FBD7 /* Gymestry */ = {
 			isa = PBXGroup;
 			children = (
+				F50010F42AAF97440040FBD7 /* ControllersDirectory */,
+				F500114C2AB7996C0040FBD7 /* ControllersTabbar */,
+				F50011452AB784730040FBD7 /* Models */,
+				F50011422AB7706E0040FBD7 /* Details */,
 				F50010FC2AB082C80040FBD7 /* Cells */,
-				F50010F42AAF97440040FBD7 /* Controllers */,
 				F50010E02AAF97200040FBD7 /* AppDelegate.swift */,
 				F50010E22AAF97200040FBD7 /* SceneDelegate.swift */,
 				F50010E42AAF97200040FBD7 /* ViewController.swift */,
@@ -76,25 +89,51 @@
 				F50010EB2AAF97200040FBD7 /* LaunchScreen.storyboard */,
 				F50010EE2AAF97200040FBD7 /* Info.plist */,
 				F50010F52AAF97790040FBD7 /* Tabbar.swift */,
-				F50010FF2AB0B1410040FBD7 /* DirectoryModel.swift */,
 			);
 			path = Gymestry;
 			sourceTree = "<group>";
 		};
-		F50010F42AAF97440040FBD7 /* Controllers */ = {
+		F50010F42AAF97440040FBD7 /* ControllersDirectory */ = {
 			isa = PBXGroup;
 			children = (
-				F50010FA2AAFA1270040FBD7 /* DirectoryController.swift */,
+				F50011482AB787C10040FBD7 /* ListMusclesController.swift */,
 			);
-			path = Controllers;
+			path = ControllersDirectory;
 			sourceTree = "<group>";
 		};
 		F50010FC2AB082C80040FBD7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				F50010FD2AB082E80040FBD7 /* DirectoryCell.swift */,
+				F500114A2AB78BB30040FBD7 /* ListMusclesCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		F50011422AB7706E0040FBD7 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				F50011432AB770830040FBD7 /* GradientView.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		F50011452AB784730040FBD7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F50010FF2AB0B1410040FBD7 /* DirectoryModel.swift */,
+				F50011462AB784C80040FBD7 /* GroupMusclesModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F500114C2AB7996C0040FBD7 /* ControllersTabbar */ = {
+			isa = PBXGroup;
+			children = (
+				F50010FA2AAFA1270040FBD7 /* DirectoryController.swift */,
+				F500114D2AB799BB0040FBD7 /* CalendarController.swift */,
+			);
+			path = ControllersTabbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,11 +214,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F50010E52AAF97200040FBD7 /* ViewController.swift in Sources */,
+				F500114E2AB799BB0040FBD7 /* CalendarController.swift in Sources */,
 				F50010FB2AAFA1270040FBD7 /* DirectoryController.swift in Sources */,
 				F50010E12AAF97200040FBD7 /* AppDelegate.swift in Sources */,
 				F50010FE2AB082E80040FBD7 /* DirectoryCell.swift in Sources */,
+				F50011492AB787C10040FBD7 /* ListMusclesController.swift in Sources */,
 				F50011002AB0B1410040FBD7 /* DirectoryModel.swift in Sources */,
 				F50010E32AAF97200040FBD7 /* SceneDelegate.swift in Sources */,
+				F50011442AB770830040FBD7 /* GradientView.swift in Sources */,
+				F500114B2AB78BB30040FBD7 /* ListMusclesCell.swift in Sources */,
+				F50011472AB784C80040FBD7 /* GroupMusclesModel.swift in Sources */,
 				F50010F62AAF97790040FBD7 /* Tabbar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,15 +1,15 @@
 //
-//  DirectoryCell.swift
+//  ListMusclesCell.swift
 //  Gymestry
 //
-//  Created by Владислава on 12.09.23.
+//  Created by Владислава on 17.09.23.
 //
 
 import UIKit
 import SnapKit
 
-class DirectoryCell: UICollectionViewCell {
-    static let id = String(describing: DirectoryCell.self)
+class ListMusclesCell: UICollectionViewCell {
+    static let id = String(describing: ListMusclesCell.self)
     
     private lazy var mainView: UIView = {
         let view = UIView()
@@ -27,22 +27,18 @@ class DirectoryCell: UICollectionViewCell {
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
-        label.textColor = .white
+        label.textColor = .black
         label.isUserInteractionEnabled = true
         return label
     }()
     
-    lazy var gradientView: UIView = {
-        let view = Gradient()
-        view.startColor = UIColor.black
-        view.endColor = nil
-        view.horizontalMode = true
-        view.alpha = 1
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 12
+    lazy var transitionView: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(systemName: "chevron.right")
+        view.contentMode = .scaleAspectFit
         return view
     }()
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -57,9 +53,9 @@ class DirectoryCell: UICollectionViewCell {
     private func makeLayout() {
         contentView.backgroundColor = .white
         contentView.addSubview(mainView)
-        mainView.addSubview(picture)
-        mainView.addSubview(gradientView)
+//        mainView.addSubview(picture)
         mainView.addSubview(nameLabel)
+        mainView.addSubview(transitionView)
     }
     
     private func makeConstraints() {
@@ -69,18 +65,12 @@ class DirectoryCell: UICollectionViewCell {
             make.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
         }
-        picture.snp.makeConstraints{ make in
-            make.leading.equalTo(mainView.snp.leading).offset(0)
-            make.trailing.equalTo(mainView.snp.trailing).offset(0)
-            make.top.equalTo(mainView.snp.top).offset(0)
-            make.bottom.equalTo(mainView.snp.bottom).offset(-0)
-        }
-        gradientView.snp.makeConstraints{ make in
-            make.leading.equalTo(mainView.snp.leading).offset(0)
-            make.trailing.equalTo(mainView.snp.trailing).offset(0)
-            make.top.equalTo(mainView.snp.top).offset(0)
-            make.bottom.equalTo(mainView.snp.bottom).offset(-0)
-        }
+//        picture.snp.makeConstraints{ make in
+//            make.leading.equalTo(mainView.snp.leading).offset(0)
+//            make.trailing.equalTo(mainView.snp.trailing).offset(0)
+//            make.top.equalTo(mainView.snp.top).offset(0)
+//            make.bottom.equalTo(mainView.snp.bottom).offset(-0)
+//        }
         nameLabel.snp.makeConstraints{ make in
             make.leading.equalTo(mainView.snp.leading).offset(10)
             make.trailing.equalTo(mainView.snp.trailing).offset(-10)
@@ -88,13 +78,17 @@ class DirectoryCell: UICollectionViewCell {
             make.height.equalTo(20)
             make.centerY.equalTo(mainView.snp.centerY)
         }
+        transitionView.snp.makeConstraints{ make in
+            make.trailing.equalTo(mainView.snp.trailing).offset(-10)
+            make.height.width.equalTo(20)
+            make.centerY.equalTo(mainView.snp.centerY)
+        }
     }
     private func initCell() {
         makeLayout()
         makeConstraints()
     }
-    func set(point: Directory) {
+    func set(point: GroupMusclesModel) {
         nameLabel.text = point.title
-        picture.image = point.image
     }
 }
