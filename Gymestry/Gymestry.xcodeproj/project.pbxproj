@@ -23,6 +23,23 @@
 		F50011492AB787C10040FBD7 /* ListMusclesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50011482AB787C10040FBD7 /* ListMusclesController.swift */; };
 		F500114B2AB78BB30040FBD7 /* ListMusclesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500114A2AB78BB30040FBD7 /* ListMusclesCell.swift */; };
 		F500114E2AB799BB0040FBD7 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500114D2AB799BB0040FBD7 /* CalendarController.swift */; };
+		F50011512AB7A0350040FBD7 /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = F50011502AB7A0350040FBD7 /* CalendarKit */; };
+		F50011532AB8BCA70040FBD7 /* SporteatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50011522AB8BCA70040FBD7 /* SporteatController.swift */; };
+		F50011562AB8C2140040FBD7 /* SporteatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50011552AB8C2140040FBD7 /* SporteatModel.swift */; };
+		F50011582AB8C7250040FBD7 /* SporteatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50011572AB8C7250040FBD7 /* SporteatCell.swift */; };
+		F500115D2ABA267A0040FBD7 /* EatDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F500115C2ABA267A0040FBD7 /* EatDetails.swift */; };
+		F573EE5A2AC9BBA300CC1094 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F573EE592AC9BBA300CC1094 /* ProfileController.swift */; };
+		F573EE5C2AC9BE2400CC1094 /* ProgramController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F573EE5B2AC9BE2400CC1094 /* ProgramController.swift */; };
+		F573EE5E2AC9C6B000CC1094 /* CalculatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F573EE5D2AC9C6B000CC1094 /* CalculatorController.swift */; };
+		F5A47EDD2AC1E88200570FB5 /* GifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A47EDC2AC1E88200570FB5 /* GifLoader.swift */; };
+		F5A47EE52AC1F4AE00570FB5 /* creatine.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A47EE12AC1F3A700570FB5 /* creatine.txt */; };
+		F5A47EE62AC1F4B200570FB5 /* gainer.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A47EE22AC1F3AA00570FB5 /* gainer.txt */; };
+		F5A47EE72AC1F4B400570FB5 /* aminoAcids.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A47EE02AC1F3A300570FB5 /* aminoAcids.txt */; };
+		F5A47EE82AC1F4B700570FB5 /* l-carnitine.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A47EE42AC1F3B000570FB5 /* l-carnitine.txt */; };
+		F5A47EE92AC1F4BB00570FB5 /* vitamins.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A47EDF2AC1F39E00570FB5 /* vitamins.txt */; };
+		F5A47EEA2AC1F4BD00570FB5 /* weightloss.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A47EE32AC1F3AD00570FB5 /* weightloss.txt */; };
+		F5A47EEC2AC1F54800570FB5 /* ExercisesListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A47EEB2AC1F54800570FB5 /* ExercisesListController.swift */; };
+		F5A47EF02AC2286300570FB5 /* ExercisesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A47EEF2AC2286300570FB5 /* ExercisesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +60,22 @@
 		F50011482AB787C10040FBD7 /* ListMusclesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMusclesController.swift; sourceTree = "<group>"; };
 		F500114A2AB78BB30040FBD7 /* ListMusclesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMusclesCell.swift; sourceTree = "<group>"; };
 		F500114D2AB799BB0040FBD7 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
+		F50011522AB8BCA70040FBD7 /* SporteatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporteatController.swift; sourceTree = "<group>"; };
+		F50011552AB8C2140040FBD7 /* SporteatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporteatModel.swift; sourceTree = "<group>"; };
+		F50011572AB8C7250040FBD7 /* SporteatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporteatCell.swift; sourceTree = "<group>"; };
+		F500115C2ABA267A0040FBD7 /* EatDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatDetails.swift; sourceTree = "<group>"; };
+		F573EE592AC9BBA300CC1094 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		F573EE5B2AC9BE2400CC1094 /* ProgramController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramController.swift; sourceTree = "<group>"; };
+		F573EE5D2AC9C6B000CC1094 /* CalculatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorController.swift; sourceTree = "<group>"; };
+		F5A47EDC2AC1E88200570FB5 /* GifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifLoader.swift; sourceTree = "<group>"; };
+		F5A47EDF2AC1F39E00570FB5 /* vitamins.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = vitamins.txt; sourceTree = "<group>"; };
+		F5A47EE02AC1F3A300570FB5 /* aminoAcids.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = aminoAcids.txt; sourceTree = "<group>"; };
+		F5A47EE12AC1F3A700570FB5 /* creatine.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = creatine.txt; sourceTree = "<group>"; };
+		F5A47EE22AC1F3AA00570FB5 /* gainer.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = gainer.txt; sourceTree = "<group>"; };
+		F5A47EE32AC1F3AD00570FB5 /* weightloss.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = weightloss.txt; sourceTree = "<group>"; };
+		F5A47EE42AC1F3B000570FB5 /* l-carnitine.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "l-carnitine.txt"; sourceTree = "<group>"; };
+		F5A47EEB2AC1F54800570FB5 /* ExercisesListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesListController.swift; sourceTree = "<group>"; };
+		F5A47EEF2AC2286300570FB5 /* ExercisesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F50010F92AAF978D0040FBD7 /* SnapKit in Frameworks */,
+				F50011512AB7A0350040FBD7 /* CalendarKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +110,8 @@
 		F50010DF2AAF97200040FBD7 /* Gymestry */ = {
 			isa = PBXGroup;
 			children = (
+				F5A47EEE2AC1FA8E00570FB5 /* Texts */,
+				F5A47EED2AC1F56D00570FB5 /* Gifs */,
 				F50010F42AAF97440040FBD7 /* ControllersDirectory */,
 				F500114C2AB7996C0040FBD7 /* ControllersTabbar */,
 				F50011452AB784730040FBD7 /* Models */,
@@ -97,6 +133,10 @@
 			isa = PBXGroup;
 			children = (
 				F50011482AB787C10040FBD7 /* ListMusclesController.swift */,
+				F50011522AB8BCA70040FBD7 /* SporteatController.swift */,
+				F500115C2ABA267A0040FBD7 /* EatDetails.swift */,
+				F5A47EEB2AC1F54800570FB5 /* ExercisesListController.swift */,
+				F573EE5D2AC9C6B000CC1094 /* CalculatorController.swift */,
 			);
 			path = ControllersDirectory;
 			sourceTree = "<group>";
@@ -106,6 +146,8 @@
 			children = (
 				F50010FD2AB082E80040FBD7 /* DirectoryCell.swift */,
 				F500114A2AB78BB30040FBD7 /* ListMusclesCell.swift */,
+				F50011572AB8C7250040FBD7 /* SporteatCell.swift */,
+				F5A47EEF2AC2286300570FB5 /* ExercisesCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -114,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				F50011432AB770830040FBD7 /* GradientView.swift */,
+				F5A47EDC2AC1E88200570FB5 /* GifLoader.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -123,6 +166,7 @@
 			children = (
 				F50010FF2AB0B1410040FBD7 /* DirectoryModel.swift */,
 				F50011462AB784C80040FBD7 /* GroupMusclesModel.swift */,
+				F50011552AB8C2140040FBD7 /* SporteatModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -132,8 +176,30 @@
 			children = (
 				F50010FA2AAFA1270040FBD7 /* DirectoryController.swift */,
 				F500114D2AB799BB0040FBD7 /* CalendarController.swift */,
+				F573EE592AC9BBA300CC1094 /* ProfileController.swift */,
+				F573EE5B2AC9BE2400CC1094 /* ProgramController.swift */,
 			);
 			path = ControllersTabbar;
+			sourceTree = "<group>";
+		};
+		F5A47EED2AC1F56D00570FB5 /* Gifs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Gifs;
+			sourceTree = "<group>";
+		};
+		F5A47EEE2AC1FA8E00570FB5 /* Texts */ = {
+			isa = PBXGroup;
+			children = (
+				F5A47EE02AC1F3A300570FB5 /* aminoAcids.txt */,
+				F5A47EE22AC1F3AA00570FB5 /* gainer.txt */,
+				F5A47EE12AC1F3A700570FB5 /* creatine.txt */,
+				F5A47EE42AC1F3B000570FB5 /* l-carnitine.txt */,
+				F5A47EE32AC1F3AD00570FB5 /* weightloss.txt */,
+				F5A47EDF2AC1F39E00570FB5 /* vitamins.txt */,
+			);
+			path = Texts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +220,7 @@
 			name = Gymestry;
 			packageProductDependencies = (
 				F50010F82AAF978D0040FBD7 /* SnapKit */,
+				F50011502AB7A0350040FBD7 /* CalendarKit */,
 			);
 			productName = Gymestry;
 			productReference = F50010DD2AAF97200040FBD7 /* Gymestry.app */;
@@ -185,6 +252,7 @@
 			mainGroup = F50010D42AAF97200040FBD7;
 			packageReferences = (
 				F50010F72AAF978D0040FBD7 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F500114F2AB7A0350040FBD7 /* XCRemoteSwiftPackageReference "CalendarKit" */,
 			);
 			productRefGroup = F50010DE2AAF97200040FBD7 /* Products */;
 			projectDirPath = "";
@@ -200,8 +268,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5A47EE82AC1F4B700570FB5 /* l-carnitine.txt in Resources */,
 				F50010ED2AAF97200040FBD7 /* LaunchScreen.storyboard in Resources */,
+				F5A47EE52AC1F4AE00570FB5 /* creatine.txt in Resources */,
 				F50010EA2AAF97200040FBD7 /* Assets.xcassets in Resources */,
+				F5A47EE62AC1F4B200570FB5 /* gainer.txt in Resources */,
+				F5A47EEA2AC1F4BD00570FB5 /* weightloss.txt in Resources */,
+				F5A47EE92AC1F4BB00570FB5 /* vitamins.txt in Resources */,
+				F5A47EE72AC1F4B400570FB5 /* aminoAcids.txt in Resources */,
 				F50010E82AAF97200040FBD7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,18 +287,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5A47EF02AC2286300570FB5 /* ExercisesCell.swift in Sources */,
 				F50010E52AAF97200040FBD7 /* ViewController.swift in Sources */,
 				F500114E2AB799BB0040FBD7 /* CalendarController.swift in Sources */,
+				F573EE5E2AC9C6B000CC1094 /* CalculatorController.swift in Sources */,
 				F50010FB2AAFA1270040FBD7 /* DirectoryController.swift in Sources */,
 				F50010E12AAF97200040FBD7 /* AppDelegate.swift in Sources */,
+				F50011532AB8BCA70040FBD7 /* SporteatController.swift in Sources */,
 				F50010FE2AB082E80040FBD7 /* DirectoryCell.swift in Sources */,
 				F50011492AB787C10040FBD7 /* ListMusclesController.swift in Sources */,
+				F5A47EDD2AC1E88200570FB5 /* GifLoader.swift in Sources */,
 				F50011002AB0B1410040FBD7 /* DirectoryModel.swift in Sources */,
 				F50010E32AAF97200040FBD7 /* SceneDelegate.swift in Sources */,
+				F50011562AB8C2140040FBD7 /* SporteatModel.swift in Sources */,
+				F5A47EEC2AC1F54800570FB5 /* ExercisesListController.swift in Sources */,
 				F50011442AB770830040FBD7 /* GradientView.swift in Sources */,
+				F500115D2ABA267A0040FBD7 /* EatDetails.swift in Sources */,
+				F573EE5A2AC9BBA300CC1094 /* ProfileController.swift in Sources */,
+				F50011582AB8C7250040FBD7 /* SporteatCell.swift in Sources */,
 				F500114B2AB78BB30040FBD7 /* ListMusclesCell.swift in Sources */,
 				F50011472AB784C80040FBD7 /* GroupMusclesModel.swift in Sources */,
 				F50010F62AAF97790040FBD7 /* Tabbar.swift in Sources */,
+				F573EE5C2AC9BE2400CC1094 /* ProgramController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +536,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		F500114F2AB7A0350040FBD7 /* XCRemoteSwiftPackageReference "CalendarKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/richardtop/CalendarKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -459,6 +551,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F50010F72AAF978D0040FBD7 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		F50011502AB7A0350040FBD7 /* CalendarKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F500114F2AB7A0350040FBD7 /* XCRemoteSwiftPackageReference "CalendarKit" */;
+			productName = CalendarKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

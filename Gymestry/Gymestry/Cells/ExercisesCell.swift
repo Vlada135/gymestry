@@ -1,15 +1,15 @@
 //
-//  ListMusclesCell.swift
+//  ExercisesCell.swift
 //  Gymestry
 //
-//  Created by Владислава on 17.09.23.
+//  Created by Владислава on 25.09.23.
 //
 
 import UIKit
 import SnapKit
 
-class ListMusclesCell: UICollectionViewCell {
-    static let id = String(describing: ListMusclesCell.self)
+class ExercisesCell: UICollectionViewCell {
+    static let id = String(describing: ExercisesCell.self)
     
     private lazy var mainView: UIView = {
         let view = UIView()
@@ -20,7 +20,7 @@ class ListMusclesCell: UICollectionViewCell {
         let image = UIImageView()
         image.layer.cornerRadius = 12
         image.clipsToBounds = true
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         return image
     }()
     
@@ -53,7 +53,7 @@ class ListMusclesCell: UICollectionViewCell {
     private func makeLayout() {
         contentView.backgroundColor = .white
         contentView.addSubview(mainView)
-        mainView.addSubview(picture)
+//        mainView.addSubview(picture)
         mainView.addSubview(nameLabel)
         mainView.addSubview(transitionView)
     }
@@ -65,14 +65,14 @@ class ListMusclesCell: UICollectionViewCell {
             make.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
         }
-        picture.snp.makeConstraints{ make in
-            make.leading.equalTo(mainView.snp.leading).offset(0)
-            make.top.equalTo(mainView.snp.top).offset(0)
-            make.bottom.equalTo(mainView.snp.bottom).offset(-0)
-            make.height.width.equalTo(90)
-        }
+//        picture.snp.makeConstraints{ make in
+//            make.leading.equalTo(mainView.snp.leading).offset(0)
+//            make.trailing.equalTo(mainView.snp.trailing).offset(0)
+//            make.top.equalTo(mainView.snp.top).offset(0)
+//            make.bottom.equalTo(mainView.snp.bottom).offset(-0)
+//        }
         nameLabel.snp.makeConstraints{ make in
-            make.leading.equalTo(picture.snp.trailing).offset(10)
+            make.leading.equalTo(mainView.snp.leading).offset(10)
             make.trailing.equalTo(mainView.snp.trailing).offset(-10)
             make.top.equalTo(mainView.snp.top).offset(10)
             make.height.equalTo(20)
@@ -88,8 +88,7 @@ class ListMusclesCell: UICollectionViewCell {
         makeLayout()
         makeConstraints()
     }
-    func set(point: GroupMusclesModel) {
-        nameLabel.text = point.title
-        picture.image = point.image
-    }
+//    func set(point: GroupMusclesModel) {
+//        nameLabel.text = point.exercises
+//    }
 }

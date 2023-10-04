@@ -10,7 +10,7 @@ import SnapKit
 import UIKit
 
 class DirectoryController: UIViewController {
-    var data: [[Directory]] = [[.exercises], [.sporteat], [.info]]
+    var data: [[Directory]] = [[.exercises], [.sporteat], [.info], [.calculator]]
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -28,7 +28,6 @@ class DirectoryController: UIViewController {
         makeConstraints()
     }
     private func makeLayout() {
-        view.backgroundColor = .white
         title = "Cправочник"
         view.addSubview(collectionView)
     }
@@ -58,8 +57,18 @@ extension DirectoryController: UICollectionViewDataSource {
 
 extension DirectoryController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let secondController = ListMusclesController()
-        self.navigationController?.pushViewController(secondController, animated: true)
+        var secondController: UIViewController = UIViewController()
+            switch (indexPath.section) {
+                case 0:
+                secondController = ListMusclesController()
+            case 1:
+                secondController = SporteatController()
+            case 3:
+                secondController = CalculatorController()
+                default:
+                    print("default")
+            }
+            self.navigationController?.pushViewController(secondController, animated: true)
     }
 }
 
