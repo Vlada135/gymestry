@@ -11,7 +11,7 @@ import UIKit
 
 class SporteatController: UIViewController {
     var list: [[SporteatModel]] = [[.protein], [.gainer], [.creatine], [.aminoAcids], [.weightLossDrugs], [.lCarnitine], [.vitamins], [.special], [.forJoints]]
-
+    
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

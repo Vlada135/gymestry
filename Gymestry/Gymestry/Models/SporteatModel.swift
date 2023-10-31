@@ -66,7 +66,7 @@ enum SporteatModel {
         }
     }
     
-
+    
     func load(file name:String) -> String {
         if let path = Bundle.main.path(forResource: name, ofType: "txt") {
             if let contents = try? String(contentsOfFile: path) {

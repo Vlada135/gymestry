@@ -38,7 +38,7 @@ class ListMusclesCell: UICollectionViewCell {
         view.contentMode = .scaleAspectFit
         return view
     }()
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

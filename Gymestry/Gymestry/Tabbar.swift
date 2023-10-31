@@ -40,8 +40,6 @@ class TabBar: UITabBarController {
         controllers.append(UINavigationController(rootViewController: profileVC4))
         profileVC4.tabBarItem = .init(title: "Cправочник", image: .init(systemName: "book"), tag: 0)
         
-        
-
         self.viewControllers = controllers
     }
 }

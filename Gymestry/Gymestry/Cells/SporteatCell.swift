@@ -38,7 +38,7 @@ class SporteatCell: UICollectionViewCell {
         view.contentMode = .scaleAspectFit
         return view
     }()
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -53,7 +53,7 @@ class SporteatCell: UICollectionViewCell {
     private func makeLayout() {
         contentView.backgroundColor = .white
         contentView.addSubview(mainView)
-//        mainView.addSubview(picture)
+        //        mainView.addSubview(picture)
         mainView.addSubview(nameLabel)
         mainView.addSubview(transitionView)
     }
@@ -65,12 +65,12 @@ class SporteatCell: UICollectionViewCell {
             make.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
         }
-//        picture.snp.makeConstraints{ make in
-//            make.leading.equalTo(mainView.snp.leading).offset(0)
-//            make.trailing.equalTo(mainView.snp.trailing).offset(0)
-//            make.top.equalTo(mainView.snp.top).offset(0)
-//            make.bottom.equalTo(mainView.snp.bottom).offset(-0)
-//        }
+        //        picture.snp.makeConstraints{ make in
+        //            make.leading.equalTo(mainView.snp.leading).offset(0)
+        //            make.trailing.equalTo(mainView.snp.trailing).offset(0)
+        //            make.top.equalTo(mainView.snp.top).offset(0)
+        //            make.bottom.equalTo(mainView.snp.bottom).offset(-0)
+        //        }
         nameLabel.snp.makeConstraints{ make in
             make.leading.equalTo(mainView.snp.leading).offset(10)
             make.trailing.equalTo(mainView.snp.trailing).offset(-10)

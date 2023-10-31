@@ -36,11 +36,10 @@ class CalendarController: UIViewController {
         calendarView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-//            make.height.equalTo(500)
             make.top.equalToSuperview().offset(16)
         }
-        }
     }
+}
 
 extension CalendarController: UICalendarViewDelegate{
     func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {

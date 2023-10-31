@@ -11,7 +11,7 @@ import UIKit
 
 class ListMusclesController: UIViewController {
     var list: [[GroupMusclesModel]] = [[.breast], [.back], [.legs], [.glutes], [.deltas], [.biceps], [.triceps], [.forearm], [.abs]]
-
+    
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

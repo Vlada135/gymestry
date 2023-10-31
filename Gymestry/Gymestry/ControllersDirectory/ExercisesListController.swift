@@ -11,7 +11,7 @@ import UIKit
 
 class ExercisesListController: UIViewController {
     var list: [[GroupMusclesModel]] = [[.breast], [.back], [.legs], [.glutes], [.deltas], [.biceps], [.triceps], [.forearm], [.abs]]
-
+    
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -52,7 +52,7 @@ extension ExercisesListController: UICollectionViewDataSource {
         let point = list[indexPath.section][indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExercisesCell.id, for: indexPath)
         guard let listcell = cell as? ExercisesCell else { return .init() }
-//        listcell.set(point: point)
+        //        listcell.set(point: point)
         return listcell
     }
 }

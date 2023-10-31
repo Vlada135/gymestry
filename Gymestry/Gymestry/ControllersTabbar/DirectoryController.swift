@@ -58,17 +58,19 @@ extension DirectoryController: UICollectionViewDataSource {
 extension DirectoryController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         var secondController: UIViewController = UIViewController()
-            switch (indexPath.section) {
-                case 0:
-                secondController = ListMusclesController()
-            case 1:
-                secondController = SporteatController()
-            case 3:
-                secondController = CalculatorController()
-                default:
-                    print("default")
-            }
-            self.navigationController?.pushViewController(secondController, animated: true)
+        switch (indexPath.section) {
+        case 0:
+            secondController = ListMusclesController()
+        case 1:
+            secondController = SporteatController()
+        case 2:
+            secondController = EncyclopediaController()
+        case 3:
+            secondController = CalculatorController()
+        default:
+            print("default")
+        }
+        self.navigationController?.pushViewController(secondController, animated: true)
     }
 }
 
