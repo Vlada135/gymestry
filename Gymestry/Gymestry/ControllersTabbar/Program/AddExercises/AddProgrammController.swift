@@ -14,7 +14,6 @@ import FirebaseDatabase
 class AddProgrammController: UIViewController {
     
     var exercisesAdd: [ExerciseAdd] = []
-    //    var plan: PlanExercise?
     var planName: String = ""
     var exerciseName: String = ""
     var exerciseID: String = ""
@@ -23,7 +22,6 @@ class AddProgrammController: UIViewController {
     var numberCondition: Bool = true
     
     var planID: String = ""
-    
     
     private lazy var saveButton: UIButton = {
         let button = UIButton(type: .system)
@@ -75,7 +73,6 @@ class AddProgrammController: UIViewController {
         super.viewDidLoad()
         makeLayout()
         makeConstraints()
-        setupControllerMode()
     }
     
     init(mode: ControllerMode) {
@@ -98,7 +95,6 @@ class AddProgrammController: UIViewController {
         view.addSubview(inputNameProgram)
         view.addSubview(tableView)
         view.addSubview(addExeciseButton)
-        
     }
     
     private func makeConstraints() {
@@ -129,9 +125,9 @@ class AddProgrammController: UIViewController {
             ) else { continue }
             self.exercisesAdd.append(new)
             self.exercisesAdd.sort(by: {$0.id ?? "" > $1.id ?? ""})
-
-            inputNameProgram.text = self.planName
             
+            inputNameProgram.text = self.planName
+    
         }
         self.tableView.reloadData()
     }
@@ -141,26 +137,6 @@ class AddProgrammController: UIViewController {
         Environment.ref.child("users/\(user.uid)/plans/\(planID)/exercises").observeSingleEvent(of: .value) { [weak self] snapshot in
             guard let contactsDict = (snapshot.value as? [String: Any]) else { return }
             self?.parseData(contactsDict)
-        }
-        
-    }
-    
-    private func setupControllerMode() {
-        switch mode {
-        case .create:
-            title = "Создать план"
-        case .edit(let editable):
-            title = "Изменить план"
-            
-            guard let user = Auth.auth().currentUser,
-                  let planId = editable.id
-            else { return }
-            Environment.ref.child("users/\(user.uid)/plans/\(planId)").observeSingleEvent(of: .value) { [weak self] snapshot    in
-                guard let planValue = snapshot.value as? [String: Any],
-                      let planForEdit = try? PlanExercise(key: planId, dict: planValue)
-                else { return }
-                self?.inputNameProgram.text = planForEdit.name
-            }
         }
     }
     
@@ -222,10 +198,10 @@ extension AddProgrammController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let secondController = ExercisesDetails()
         secondController.exerciseid = exercisesAdd[indexPath.row].exerciseID
-//        secondController.set(list: exercisesAdd[indexPath.row])
         self.navigationController?.pushViewController(secondController, animated: true)
     }
 }
+
 
 
 

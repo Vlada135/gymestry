@@ -17,7 +17,7 @@ class AddEncyclopedia: UIViewController {
     
     var category: Bool = false
     var categoryIDAdd: String = ""
-
+    
     
     private lazy var nameInput = InputField()
     
@@ -63,8 +63,8 @@ class AddEncyclopedia: UIViewController {
         view.layer.borderWidth = 1
         return view
     }()
-
-
+    
+    
     private lazy var actionButton: UIButton = {
         let button = GradientButton(type: .system)
         button.tintColor = .white
@@ -79,7 +79,7 @@ class AddEncyclopedia: UIViewController {
         )
         return button
     }()
-
+    
     private let mode: ControllerMode
     
     override func viewDidLoad() {
@@ -93,7 +93,7 @@ class AddEncyclopedia: UIViewController {
     
     init(mode: ControllerMode) {
         self.mode = mode
-
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -127,7 +127,7 @@ class AddEncyclopedia: UIViewController {
             make.top.equalTo(avatarImageView.snp.bottom).inset(-20)
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalTo(actionButton.snp.top).inset(-5)
-
+            
         }
         actionButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
@@ -141,60 +141,60 @@ class AddEncyclopedia: UIViewController {
     }
     
     private func setupControllerMode() {
-            switch mode {
-            case .create:
-                title = "Создать спортивную добавку"
-            case .edit(let editable):
-                title = "Изменить спортивную добавку"
-                
-                guard let encyclopediId = editable.id else { return }
-                Environment.ref.child("encyclopedies/\(encyclopediId)/encyclopedia").observeSingleEvent(of: .value) { [weak self] snapshot  in
-                    guard let listValue = snapshot.value as? [String: Any],
-                          let listForEdit = try? Encyclopedia(key: encyclopediId, dict: listValue)
-                    else { return }
-                    self?.nameInput.text = listForEdit.title
-                }
+        switch mode {
+        case .create:
+            title = "Создать статью"
+        case .edit(let editable):
+            title = "Изменить статью"
+            
+            guard let encyclopediId = editable.id else { return }
+            Environment.ref.child("encyclopedies/\(encyclopediId)/encyclopedia").observeSingleEvent(of: .value) { [weak self] snapshot  in
+                guard let listValue = snapshot.value as? [String: Any],
+                      let listForEdit = try? Encyclopedia(key: encyclopediId, dict: listValue)
+                else { return }
+                self?.nameInput.text = listForEdit.title
             }
         }
+    }
     
+    
+    @objc private func save() {
         
-        @objc private func save() {
-            
-                guard let image = self.avatarImageView.image,
-                let imageData = image.jpegData(compressionQuality: 0.2)
+        guard let image = self.avatarImageView.image,
+              let imageData = image.jpegData(compressionQuality: 0.2)
+        else { return }
+        let fileName = UUID().uuidString
+        let child = Environment.storage.child("encyclopedia/\(fileName).jpg")
+        child.putData(imageData, metadata: nil) { [weak self] (metadata, error) in
+            guard metadata != nil else {
+                print("Картинка не была загружена")
+                return
+            }
+            child.downloadURL { [weak self] url, error in
+                guard let self,
+                      let title = self.nameInput.text,
+                      let url
                 else { return }
-                let fileName = UUID().uuidString
-                let child = Environment.storage.child("encyclopedia/\(fileName).jpg")
-                child.putData(imageData, metadata: nil) { [weak self] (metadata, error) in
-                    guard metadata != nil else {
-                        print("Картинка не была загружена")
-                        return
-                    }
-                    child.downloadURL { [weak self] url, error in
-                        guard let self,
-                              let title = self.nameInput.text,
-                              let url
-                        else { return }
-                        
-                        let groupList = Encyclopedia(
-                            id: nil,
-                            title: title,
-                            encyclopediaImage: url.absoluteString,
-                            description: descriptionText.text
-                        )
-                        
-                        switch self.mode {
-                        case .create:
-                            Environment.ref.child("encyclopedies").childByAutoId().setValue(groupList.asDict)
-                        case .edit(let editable):
-                            guard let id = editable.id else { return }
-                            Environment.ref.child("encyclopedies/\(id)").updateChildValues(groupList.asDict)
-                        }
-                    }
-            
+                
+                let groupList = Encyclopedia(
+                    id: nil,
+                    title: title,
+                    encyclopediaImage: url.absoluteString,
+                    description: descriptionText.text
+                )
+                
+                switch self.mode {
+                case .create:
+                    Environment.ref.child("encyclopedies").childByAutoId().setValue(groupList.asDict)
+                case .edit(let editable):
+                    guard let id = editable.id else { return }
+                    Environment.ref.child("encyclopedies/\(id)").updateChildValues(groupList.asDict)
                 }
-                       
-                    }
+            }
+            
+        }
+        
+    }
     
     @objc private func addPhoto() {
         print("Select image dialog")
@@ -205,7 +205,7 @@ class AddEncyclopedia: UIViewController {
         pickerVC.delegate = self
         present(pickerVC, animated: true)
     }
-        
+    
     
     @objc func settingAction() {
         let secondController = SettingController()

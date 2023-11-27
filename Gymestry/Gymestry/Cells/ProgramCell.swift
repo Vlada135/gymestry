@@ -20,7 +20,7 @@ class ProgramCell: UITableViewCell {
         return view
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .black
@@ -29,7 +29,7 @@ class ProgramCell: UITableViewCell {
         return label
     }()
     
-    lazy var transitionView: UIImageView = {
+    private lazy var transitionView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(systemName: "chevron.right")
         view.contentMode = .scaleAspectFit

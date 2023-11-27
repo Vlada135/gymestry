@@ -22,7 +22,6 @@ class AddSportEat: UIViewController {
     var category: Bool = false
     var categoryIDAdd: String = ""
     
-    
     private lazy var nameInput = InputField()
     
     private lazy var sporteatLabel: InputLabel = {

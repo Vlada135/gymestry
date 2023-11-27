@@ -8,10 +8,10 @@
 import UIKit
 
 class InputField: UITextField {
- 
-     init() {
-         super.init(frame: .zero)
-         initView()
+    
+    init() {
+        super.init(frame: .zero)
+        initView()
     }
     
     required init?(coder: NSCoder) {
@@ -28,5 +28,5 @@ class InputField: UITextField {
             make.height.equalTo(40)
         }
     }
-
+    
 }

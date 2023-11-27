@@ -56,7 +56,6 @@ class MusclesAdd: UIViewController {
         return image
     }()
     
-    
     private lazy var actionButton: UIButton = {
         let button = GradientButton(type: .system)
         button.tintColor = .white

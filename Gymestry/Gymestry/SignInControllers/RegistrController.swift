@@ -53,7 +53,7 @@ class RegistrController: UIViewController {
         label.textAlignment = .left
         return label
     }()
-    lazy var loginTextField: UITextField = {
+    private lazy var loginTextField: UITextField = {
         let field = UITextField()
         field.font = .systemFont(ofSize: 12, weight: .regular)
         field.placeholder = "Введите Ваш логин"
@@ -74,7 +74,7 @@ class RegistrController: UIViewController {
         label.textAlignment = .left
         return label
     }()
-    lazy var passwordTextField: UITextField = {
+    private lazy var passwordTextField: UITextField = {
         let field = UITextField()
         field.font = .systemFont(ofSize: 12, weight: .regular)
         field.placeholder = "Введите Ваш пароль"
@@ -120,7 +120,6 @@ class RegistrController: UIViewController {
         return button
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         makeLayout()
@@ -145,7 +144,6 @@ class RegistrController: UIViewController {
         mainView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
         loginView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.height.equalTo(320)
@@ -216,7 +214,6 @@ class RegistrController: UIViewController {
     
     @objc private func showPassword(_ sender: UIButton) {
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
-        
         if passwordTextField.isSecureTextEntry{
             self.eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         } else {

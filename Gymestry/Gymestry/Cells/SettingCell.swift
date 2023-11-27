@@ -25,9 +25,9 @@ class SettingCell: UICollectionViewCell {
         image.image = UIImage(systemName: "circle.fill")
         image.alpha = 0.7
         return image
-     }()
+    }()
     
-    lazy var picture:UIImageView = {
+    private lazy var picture:UIImageView = {
         let image = UIImageView()
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFit
@@ -35,7 +35,7 @@ class SettingCell: UICollectionViewCell {
         return image
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14, weight: .bold)
         label.textColor = .black
@@ -43,7 +43,7 @@ class SettingCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var transitionView: UIImageView = {
+    private lazy var transitionView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(systemName: "chevron.right")
         view.tintColor = .black
@@ -54,10 +54,12 @@ class SettingCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initCell()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

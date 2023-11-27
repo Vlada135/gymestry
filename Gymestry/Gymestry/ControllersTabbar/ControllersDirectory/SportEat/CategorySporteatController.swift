@@ -10,7 +10,7 @@ import SnapKit
 import UIKit
 
 class CategorySporteatController: UIViewController {
-
+    
     var sporteat: [Sporteat] = []
     var idCategory : String = ""
     var categoryName: String = ""

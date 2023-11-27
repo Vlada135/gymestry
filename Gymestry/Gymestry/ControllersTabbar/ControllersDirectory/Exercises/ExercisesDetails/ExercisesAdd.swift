@@ -15,6 +15,7 @@ import FirebaseStorage
 
 
 class ExercisesAdd: UIViewController {
+    
     var exercises: [Exercises] = []
     var groupIDAdd: String = ""
     var weightSelect: Bool = false
@@ -139,7 +140,6 @@ class ExercisesAdd: UIViewController {
         return view
     }()
     
-    
     private lazy var actionButton: UIButton = {
         let button = GradientButton(type: .system)
         button.tintColor = .white
@@ -207,7 +207,6 @@ class ExercisesAdd: UIViewController {
             make.height.width.equalTo(100)
             make.centerX.equalToSuperview()
         }
-        
         weightView.snp.makeConstraints { make in
             make.top.equalTo(avatarImageView.snp.bottom).inset(-30)
             make.leading.trailing.equalToSuperview().inset(40)
@@ -223,7 +222,6 @@ class ExercisesAdd: UIViewController {
             make.height.width.equalTo(25)
             make.centerY.equalTo(weightView)
         }
-        
         numberView.snp.makeConstraints { make in
             make.top.equalTo(weightView.snp.bottom).inset(-5)
             make.leading.trailing.equalToSuperview().inset(40)
@@ -239,7 +237,6 @@ class ExercisesAdd: UIViewController {
             make.height.width.equalTo(25)
             make.centerY.equalTo(numberView)
         }
-        
         durationView.snp.makeConstraints { make in
             make.top.equalTo(numberView.snp.bottom).inset(-5)
             make.leading.trailing.equalToSuperview().inset(40)
@@ -255,13 +252,11 @@ class ExercisesAdd: UIViewController {
             make.height.width.equalTo(25)
             make.centerY.equalTo(durationView)
         }
-        
         descriptionText.snp.makeConstraints { make in
             make.top.equalTo(durationView.snp.bottom).inset(-20)
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalTo(actionButton.snp.top).inset(-5)
         }
-        
         actionButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.leading.trailing.equalToSuperview().inset(16)
@@ -306,7 +301,6 @@ class ExercisesAdd: UIViewController {
             print("default")
         }
     }
-    
     
     private func setupControllerMode() {
         switch mode {
@@ -373,24 +367,24 @@ class ExercisesAdd: UIViewController {
                     guard let id = editable.id else { return }
                     Environment.ref.child("exercises/\(id)").updateChildValues(groupList.asDict)
                 }
-                
             }
         }
     }
 }
-    extension ExercisesAdd: PHPickerViewControllerDelegate {
-        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            picker.dismiss(animated: true, completion: .none)
-            results.forEach { result in
-                result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] reading, error in
-                    guard let image = reading as? UIImage,
-                          error == nil
-                    else { return }
-                    DispatchQueue.main.async { [weak self] in
-                        self?.avatarImageView.image = image
 
-                    }
+extension ExercisesAdd: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true, completion: .none)
+        results.forEach { result in
+            result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] reading, error in
+                guard let image = reading as? UIImage,
+                      error == nil
+                else { return }
+                DispatchQueue.main.async { [weak self] in
+                    self?.avatarImageView.image = image
+                    
                 }
             }
         }
     }
+}

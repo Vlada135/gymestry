@@ -16,7 +16,7 @@ class DirectoryCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var picture:UIImageView = {
+    private lazy var picture:UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 12
         image.clipsToBounds = true
@@ -24,7 +24,7 @@ class DirectoryCell: UICollectionViewCell {
         return image
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .white
@@ -32,7 +32,7 @@ class DirectoryCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var gradientView: UIView = {
+   private lazy var gradientView: UIView = {
         let view = Gradient()
         view.startColor = UIColor.black
         view.endColor = nil
@@ -46,10 +46,12 @@ class DirectoryCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initCell()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -81,10 +83,12 @@ class DirectoryCell: UICollectionViewCell {
             make.centerY.equalTo(mainView.snp.centerY)
         }
     }
+    
     private func initCell() {
         makeLayout()
         makeConstraints()
     }
+    
     func set(point: Directory) {
         nameLabel.text = point.title
         picture.image = point.image

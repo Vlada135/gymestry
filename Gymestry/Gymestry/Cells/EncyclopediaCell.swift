@@ -12,14 +12,14 @@ class EncyclopediaCell: UICollectionViewCell {
     static let id = String(describing: EncyclopediaCell.self)
     
     var list: Encyclopedia?
-
+    
     
     private lazy var mainView: UIView = {
         let view = UIView()
         return view
     }()
     
-    lazy var picture:UIImageView = {
+    private lazy var picture:UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 12
         image.clipsToBounds = true
@@ -27,7 +27,7 @@ class EncyclopediaCell: UICollectionViewCell {
         return image
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .white
@@ -36,7 +36,7 @@ class EncyclopediaCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var gradientView: UIView = {
+    private lazy var gradientView: UIView = {
         let view = Gradient()
         view.startColor = UIColor.black
         view.endColor = nil
@@ -50,10 +50,12 @@ class EncyclopediaCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initCell()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -84,11 +86,11 @@ class EncyclopediaCell: UICollectionViewCell {
             make.centerY.equalTo(mainView.snp.centerY)
         }
     }
+    
     private func initCell() {
         makeLayout()
         makeConstraints()
         self.picture.image = UIImage(systemName: "gear")
-        
     }
     
     override func prepareForReuse() {

@@ -18,8 +18,6 @@ class ExercisesPlanController: UIViewController {
     var groupName: String = ""
     var planID: String = ""
     
-    
-    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -107,7 +105,6 @@ extension ExercisesPlanController: UICollectionViewDelegate {
         secondController.durationCondition = exercises[indexPath.row].durationSelect
         secondController.numberCondition = exercises[indexPath.row].numberSelect
         
-        
         guard
             let image  = exercises[indexPath.row].exerciseImage,
             let user = Auth.auth().currentUser,
@@ -122,8 +119,8 @@ extension ExercisesPlanController: UICollectionViewDelegate {
             name: name,
             exerciseID: exerciseID,
             exerciseImage: image
-            
         )
+        
         Environment.ref.child("users/\(user.uid)/plans/\(planID)/exercises/\(planList.id ?? "")").setValue(planList.asDict)
         
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers ;
@@ -134,7 +131,6 @@ extension ExercisesPlanController: UICollectionViewDelegate {
         }
     }
 }
-
 
 extension ExercisesPlanController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

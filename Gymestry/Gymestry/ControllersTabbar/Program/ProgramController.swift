@@ -62,7 +62,6 @@ class ProgramController: UIViewController {
         super.viewDidLoad()
         makeLayout()
         makeConstraints()
-        setupControllerMode()
     }
     
     private func makeLayout() {
@@ -73,7 +72,6 @@ class ProgramController: UIViewController {
     }
     
     private func makeConstraints() {
-        
         createProgramButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(30)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(21)
@@ -109,31 +107,12 @@ class ProgramController: UIViewController {
         }
     }
     
-    
-    private func setupControllerMode() {
-        switch mode {
-        case .create: break
-            
-        case .edit(let editable):
-            guard let user = Auth.auth().currentUser,
-                  let planId = editable.id
-            else { return }
-            Environment.ref.child("users/\(user.uid)/plans/\(planId)").observeSingleEvent(of: .value) { [weak self] snapshot   in
-                guard let planValue = snapshot.value as? [String: Any],
-                      let planForEdit = try? PlanExercise(key: planId, dict: planValue)
-                else { return }
-                
-            }
-        }
-    }
-    
     @objc private func addProgram() {
         let secondController = AddProgrammController(mode: .create)
         guard
             let user = Auth.auth().currentUser,
             let autoId = Environment.ref.child("users/\(user.uid)/plans/").childByAutoId().key
         else { return }
-        
         
         let planList = PlanExercise(
             id: autoId,
@@ -150,10 +129,9 @@ class ProgramController: UIViewController {
         
         secondController.planID = planList.id ?? ""
         self.navigationController?.pushViewController(secondController, animated: true)
-        }
-    
-    
+    }
 }
+
 extension ProgramController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

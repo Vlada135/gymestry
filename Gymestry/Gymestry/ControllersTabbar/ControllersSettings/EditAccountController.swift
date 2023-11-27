@@ -14,7 +14,6 @@ import FirebaseDatabase
 
 class EditAccountController: UIViewController {
     
-    
     private lazy var saveButton: GradientButton = {
         let button = GradientButton(type: .system)
         button.tintColor = .white
@@ -82,6 +81,7 @@ class EditAccountController: UIViewController {
         setupControllerMode()
         setupGestures()
     }
+    
     private func makeLayout() {
         view.backgroundColor = .white
         title = "Настройка аккаунта"
@@ -110,7 +110,6 @@ class EditAccountController: UIViewController {
             make.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
             make.top.equalTo(avatarImageView.snp.bottom).offset(50)
             make.height.equalTo(80)
-            
         }
         inputHeight.snp.makeConstraints { make in
             make.top.equalTo(inputName.snp.bottom).offset(20)
@@ -122,14 +121,12 @@ class EditAccountController: UIViewController {
             make.top.equalTo(inputHeight.snp.bottom).offset(20)
             make.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
             make.height.equalTo(80)
-            
         }
         saveButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(30)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(21)
             make.height.equalTo(60)
         }
-        
     }
     
     private func setupGestures() {
@@ -200,7 +197,7 @@ class EditAccountController: UIViewController {
             }
         }
     }
- 
+    
     
     @objc private func addPhoto() {
         print("Select image dialog")

@@ -84,7 +84,7 @@ class ExercisesListController: UIViewController {
 }
 
 extension ExercisesListController: UICollectionViewDataSource {
-   
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return exercises.count
     }

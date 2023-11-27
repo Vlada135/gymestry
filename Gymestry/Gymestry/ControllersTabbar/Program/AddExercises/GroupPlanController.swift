@@ -54,15 +54,18 @@ class GroupPlanController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addButton)
         view.addSubview(collectionView)
     }
+    
     private func makeConstraints() {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
+    
     @objc func action() {
         let secondController = MusclesAdd(mode: .create)
         self.navigationController?.pushViewController(secondController, animated: true)
     }
+    
     private func parseData(_ dict: [String : Any]) {
         group.removeAll()
         for (key, value) in dict {
@@ -83,7 +86,6 @@ class GroupPlanController: UIViewController {
             guard let contactsDict = (snapshot.value as? [String: Any]) else { return }
             self?.parseData(contactsDict)
         }
-        
     }
 }
 

@@ -20,7 +20,7 @@ class ExerciseProgramCell: UITableViewCell {
         return view
     }()
     
-    lazy var picture:UIImageView = {
+    private lazy var picture:UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 12
         image.clipsToBounds = true
@@ -28,7 +28,7 @@ class ExerciseProgramCell: UITableViewCell {
         return image
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .black
@@ -36,8 +36,8 @@ class ExerciseProgramCell: UITableViewCell {
         label.numberOfLines = 0
         return label
     }()
-
-    lazy var transitionView: UIImageView = {
+    
+    private lazy var transitionView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(systemName: "chevron.right")
         view.contentMode = .scaleAspectFit
@@ -62,7 +62,8 @@ class ExerciseProgramCell: UITableViewCell {
         contentView.addSubview(mainView)
         mainView.addSubview(picture)
         mainView.addSubview(nameLabel)
-        mainView.addSubview(transitionView)    }
+        mainView.addSubview(transitionView)
+    }
     
     private func makeConstraints() {
         mainView.snp.makeConstraints { make in
@@ -85,13 +86,12 @@ class ExerciseProgramCell: UITableViewCell {
             make.height.width.equalTo(20)
             make.centerY.equalTo(mainView.snp.centerY)
         }
-        
     }
+    
     private func initCell() {
         makeLayout()
         makeConstraints()
         self.picture.image = UIImage(systemName: "gear")
-
     }
     
     override func prepareForReuse() {
@@ -117,10 +117,11 @@ class ExerciseProgramCell: UITableViewCell {
         }
         
     }
-        func setExercise(list: ExerciseAdd) {
-            self.list = list
-            configure()
-        }
+    
+    func setExercise(list: ExerciseAdd) {
+        self.list = list
+        configure()
+    }
 }
 
 

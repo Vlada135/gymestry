@@ -34,7 +34,7 @@ class InputLabField: UIView {
         set { inputLabel.text = newValue }
         get { return inputLabel.text ?? ""}
     }
-
+    
     var placeholder: String? {
         set { inputField.placeholder = newValue }
         get { return inputField.placeholder ?? ""}
@@ -49,7 +49,6 @@ class InputLabField: UIView {
         placeholder: String? = nil,
         textLabel: String? = nil,
         text: String? = nil
-
     ) {
         super.init(frame: .zero)
         makeLayout()
@@ -69,12 +68,10 @@ class InputLabField: UIView {
     }
     
     private func makeConstraints() {
-
         inputLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(21)
             make.height.equalTo(20)
         }
-        
         inputField.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(21)
             make.top.equalTo(inputLabel.snp.bottom).inset(-10)

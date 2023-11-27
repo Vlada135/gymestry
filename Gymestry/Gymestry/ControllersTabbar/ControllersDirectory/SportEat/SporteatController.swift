@@ -104,14 +104,12 @@ extension SporteatController: UICollectionViewDelegate {
             let secondController = EatDetails()
             secondController.set(eat: sporteat[indexPath.row])
             self.navigationController?.pushViewController(secondController, animated: true)
-        }else {
-            
+        } else {
             let secondController1 = CategorySporteatController()
             secondController1.idCategory = sporteat[indexPath.row].id ?? ""
             secondController1.categoryName = sporteat[indexPath.row].sporteat
             self.navigationController?.pushViewController(secondController1, animated: true)
         }
-        
     }
 }
 

@@ -16,7 +16,7 @@ class EncyclopediaDetails: UIViewController {
         return view
     }()
     
-   private lazy var gradientView: UIView = {
+    private lazy var gradientView: UIView = {
         let view = Gradient()
         view.startColor = UIColor.black
         view.endColor = nil
@@ -34,6 +34,7 @@ class EncyclopediaDetails: UIViewController {
         image.contentMode = .scaleAspectFill
         return image
     }()
+    
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
@@ -42,6 +43,7 @@ class EncyclopediaDetails: UIViewController {
         label.isUserInteractionEnabled = true
         return label
     }()
+    
     private lazy var infoText: UITextView = {
         let view = UITextView()
         view.textColor = .black
@@ -56,6 +58,7 @@ class EncyclopediaDetails: UIViewController {
         makeLayout()
         makeConstraints()
     }
+    
     private func makeLayout() {
         title = "Энциклопедия"
         view.backgroundColor = .white
@@ -65,6 +68,7 @@ class EncyclopediaDetails: UIViewController {
         view.addSubview(nameLabel)
         view.addSubview(infoText)
     }
+    
     private func makeConstraints() {
         mainView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
@@ -90,6 +94,7 @@ class EncyclopediaDetails: UIViewController {
             make.bottom.equalToSuperview().offset(-100)
         }
     }
+    
     func set(encyclopedia: Encyclopedia) {
         self.nameLabel.text = encyclopedia.title
         self.infoText.text = encyclopedia.description?.replacingOccurrences(of: "[br]", with: "\n\n")

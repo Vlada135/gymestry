@@ -38,22 +38,25 @@ class ResultController: UIViewController {
         return stack
     }()
     
-    private lazy var proteinLabel: InputLabel = {
+    lazy var proteinLabel: InputLabel = {
         let label = InputLabel()
         label.text = "Белки"
         return label
     }()
-    private lazy var fatLabel: InputLabel = {
+    
+    lazy var fatLabel: InputLabel = {
         let label = InputLabel()
         label.text = "Жиры"
         return label
     }()
-    private lazy var carbLabel: InputLabel = {
+    
+    lazy var carbLabel: InputLabel = {
         let label = InputLabel()
         label.text = "Углеводы"
         return label
     }()
-     private lazy var stackPFCresult: UIStackView = {
+    
+    private lazy var stackPFCresult: UIStackView = {
         let stack = UIStackView()
         stack.spacing = 30
         stack.distribution = .fillEqually
@@ -61,18 +64,21 @@ class ResultController: UIViewController {
         return stack
     }()
     
-     lazy var proteinLabelresult: InputLabel = {
+    lazy var proteinLabelresult: InputLabel = {
         let label = InputLabel()
         return label
     }()
-     lazy var fatLabelresult: InputLabel = {
+    
+    lazy var fatLabelresult: InputLabel = {
         let label = InputLabel()
         return label
     }()
-     lazy var carbLabelresult: InputLabel = {
+    
+    lazy var carbLabelresult: InputLabel = {
         let label = InputLabel()
         return label
     }()
+    
     private lazy var backToMainButton: UIButton = {
         let button = GradientButton(type: .system)
         button.tintColor = .white
@@ -95,7 +101,6 @@ class ResultController: UIViewController {
         super.viewDidLoad()
         makeLayout()
         makeConstraints()
-        
     }
     
     private func makeLayout() {
@@ -115,13 +120,11 @@ class ResultController: UIViewController {
         view.addSubview(backToMainButton)
     }
     private func makeConstraints() {
-        
         resutlView.snp.makeConstraints { make in
             make.height.equalTo(160)
             make.center.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(16)
         }
-        
         resultLabel.snp.makeConstraints{ make in
             make.leading.trailing.equalTo(resutlView).inset(20)
             make.top.equalTo(resutlView.snp.top).offset(10)
@@ -148,11 +151,11 @@ class ResultController: UIViewController {
         }
     }
     
-    @objc func backToMain(sender: UIButton) {
+    @objc private func backToMain(sender: UIButton) {
         if let nav = self.navigationController {
-              nav.popToRootViewController(animated: true)
-          } else {
-              self.dismiss(animated: true, completion: nil)
-          }
+            nav.popToRootViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }

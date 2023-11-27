@@ -36,11 +36,8 @@ class LogInController: UIViewController {
         return image
     }()
     
-    private lazy var stack: UIStackView = {
-        let stack = UIStackView()
-        stack.distribution = .fillEqually
-        stack.spacing = 5
-        stack.axis = .vertical
+    private lazy var stack: UIView = {
+        let stack = UIView()
         return stack
     }()
     
@@ -54,7 +51,7 @@ class LogInController: UIViewController {
         return label
     }()
     
-    lazy var loginTextField: UITextField = {
+    private lazy var loginTextField: UITextField = {
         let field = UITextField()
         field.font = .systemFont(ofSize: 12, weight: .regular)
         field.placeholder = "Введите Ваш логин"
@@ -75,7 +72,7 @@ class LogInController: UIViewController {
         label.textAlignment = .left
         return label
     }()
-    lazy var passwordTextField: UITextField = {
+    private lazy var passwordTextField: UITextField = {
         let field = UITextField()
         field.font = .systemFont(ofSize: 12, weight: .regular)
         field.placeholder = "Введите Ваш пароль"
@@ -135,16 +132,6 @@ class LogInController: UIViewController {
         return button
     }()
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        navigationController?.setNavigationBarHidden(true, animated: animated)
-//    }
-////
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        navigationController?.setNavigationBarHidden(false, animated: animated)
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         makeLayout()
@@ -194,36 +181,30 @@ class LogInController: UIViewController {
         }
         loginLabel.snp.makeConstraints { make in
             make.height.equalTo(20)
-            make.leading.equalTo(stack.snp.leading).offset(0)
-            make.trailing.equalTo(stack.snp.trailing).offset(0)
+            make.leading.trailing.equalTo(stack)
         }
         loginTextField.snp.makeConstraints { make in
             make.top.equalTo(loginLabel.snp.bottom).offset(3)
             make.height.equalTo(40)
-            make.leading.equalTo(stack.snp.leading).offset(0)
-            make.trailing.equalTo(stack.snp.trailing).offset(0)
+            make.leading.trailing.equalTo(stack)
         }
         passowrdLabel.snp.makeConstraints { make in
             make.top.equalTo(loginTextField.snp.bottom).offset(10)
             make.height.equalTo(20)
-            make.leading.equalTo(stack.snp.leading).offset(0)
-            make.trailing.equalTo(stack.snp.trailing).offset(0)
+            make.leading.trailing.equalTo(stack)
         }
         passwordTextField.snp.makeConstraints { make in
             make.top.equalTo(passowrdLabel.snp.bottom).offset(3)
             make.height.equalTo(40)
-            make.leading.equalTo(stack.snp.leading).offset(0)
-            make.trailing.equalTo(stack.snp.trailing).offset(0)
+            make.leading.trailing.equalTo(stack)
         }
         signInButton.snp.makeConstraints { make in
             make.top.equalTo(passwordTextField.snp.bottom).offset(30)
-            make.leading.equalTo(stack.snp.leading).offset(0)
-            make.trailing.equalTo(stack.snp.trailing).offset(0)
+            make.leading.trailing.equalTo(stack)
         }
         ragistrationButton.snp.makeConstraints { make in
             make.top.equalTo(signInButton.snp.bottom).offset(10)
-            make.leading.equalTo(stack.snp.leading).offset(0)
-            make.trailing.equalTo(stack.snp.trailing).offset(0)
+            make.leading.trailing.equalTo(stack)
         }
     }
     

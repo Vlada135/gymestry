@@ -19,8 +19,7 @@ class EncyclopediaController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addButton)
         return addButton
     }()
-     
-   
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -88,7 +87,6 @@ class EncyclopediaController: UIViewController {
             guard let contactsDict = (snapshot.value as? [String: Any]) else { return }
             self?.parseData(contactsDict)
         }
-        
     }
 }
 

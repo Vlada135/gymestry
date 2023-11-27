@@ -20,7 +20,7 @@ class ListMusclesCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var picture:UIImageView = {
+    private lazy var picture:UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 12
         image.clipsToBounds = true
@@ -28,7 +28,7 @@ class ListMusclesCell: UICollectionViewCell {
         return image
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .black
@@ -36,7 +36,7 @@ class ListMusclesCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var transitionView: UIImageView = {
+    private lazy var transitionView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(systemName: "chevron.right")
         view.contentMode = .scaleAspectFit
@@ -93,7 +93,6 @@ class ListMusclesCell: UICollectionViewCell {
         makeLayout()
         makeConstraints()
         self.picture.image = UIImage(systemName: "gear")
-        
     }
     
     override func prepareForReuse() {

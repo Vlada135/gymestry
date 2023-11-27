@@ -15,45 +15,45 @@ class CalculatorController: UIViewController {
         CGSize(width: view.frame.width, height: view.frame.height + 200)
     }
     
-    lazy var scrollView: UIScrollView = {
+    private lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.frame = view.bounds
         scroll.contentSize = contentSize
         return scroll
     }()
     
-    lazy var contentView: UIView = {
+    private lazy var contentView: UIView = {
         let view = UIView()
         view.frame.size = contentSize
         return view
     }()
     
-    lazy var genderView = InputView()
-    lazy var ageView = InputView()
-    lazy var heightView = InputView()
-    lazy var weightView = InputView()
-    lazy var activeView = InputView()
-    lazy var aimView = InputView()
+    private lazy var genderView = InputView()
+    private lazy var ageView = InputView()
+    private lazy var heightView = InputView()
+    private lazy var weightView = InputView()
+    private lazy var activeView = InputView()
+    private lazy var aimView = InputView()
     
     
-    lazy var genderLabel: UILabel = {
+    private lazy var genderLabel: UILabel = {
         let label = InputLabel()
         label.text = "Пол"
         return label
     }()
-    lazy var ageLabel: UILabel = {
+    private lazy var ageLabel: UILabel = {
         let label = InputLabel()
         label.textAlignment = .center
         label.text = "Возраст"
         return label
     }()
-    lazy var weightLabel: UILabel = {
+    private lazy var weightLabel: UILabel = {
         let label = InputLabel()
         label.textAlignment = .center
         label.text = "Вес"
         return label
     }()
-    lazy var heightLabel: UILabel = {
+    private lazy var heightLabel: UILabel = {
         let label = InputLabel()
         label.textAlignment = .center
         label.text = "Рост"
@@ -64,13 +64,13 @@ class CalculatorController: UIViewController {
         label.text = "Активность"
         return label
     }()
-    lazy var aimLabel: UILabel = {
+    private lazy var aimLabel: UILabel = {
         let label = InputLabel()
         label.text = "Цель"
         return label
     }()
     
-    lazy var womanImage: UIImageView = {
+    private lazy var womanImage: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.image = UIImage(named: "woman")
@@ -78,7 +78,7 @@ class CalculatorController: UIViewController {
         return view
     }()
     
-    lazy var manImage: UIImageView = {
+    private lazy var manImage: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.image = UIImage(named: "man")
@@ -217,7 +217,7 @@ class CalculatorController: UIViewController {
         return button
     }()
     
-    lazy var ageTextField: UITextField = {
+    private lazy var ageTextField: UITextField = {
         let text = UITextField()
         text.keyboardType = UIKeyboardType.numberPad
         text.placeholder = "Возраст"
@@ -225,7 +225,7 @@ class CalculatorController: UIViewController {
         return text
     }()
     
-    lazy var heightTextField: UITextField = {
+    private lazy var heightTextField: UITextField = {
         let height = UITextField()
         height.keyboardType = UIKeyboardType.numberPad
         height.placeholder = "Рост, см"
@@ -233,7 +233,7 @@ class CalculatorController: UIViewController {
         return height
     }()
     
-    lazy var weightTextField: UITextField = {
+    private lazy var weightTextField: UITextField = {
         let weight = UITextField()
         weight.keyboardType = UIKeyboardType.numberPad
         weight.placeholder = "Вес, кг"
@@ -306,8 +306,6 @@ class CalculatorController: UIViewController {
         aimView.addSubview(increaseWeightButton)
         
         contentView.addSubview(resultButton)
-        
-        
     }
     private func makeConstraints() {
         
@@ -453,7 +451,7 @@ class CalculatorController: UIViewController {
         }
         
         resultButton.snp.makeConstraints { make in
-            make.bottom.equalTo(contentView.snp.bottom).inset(35)
+            make.top.equalTo(aimView.snp.bottom).inset(-35)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         aimView.snp.makeConstraints { make in
@@ -488,7 +486,7 @@ class CalculatorController: UIViewController {
         }
     }
     
-    @objc func action(sender: UIButton) {
+    @objc private func action(sender: UIButton) {
         switch (sender) {
         case womanButton:
             womanButton.alpha = 1
@@ -502,7 +500,7 @@ class CalculatorController: UIViewController {
         }
     }
     
-    @objc func result(sender: UIButton) {
+    @objc private func result(sender: UIButton) {
         guard let ageField = ageTextField.text,
               let heightField = heightTextField.text,
               let weightField = weightTextField.text,
@@ -559,7 +557,7 @@ class CalculatorController: UIViewController {
         self.navigationController?.pushViewController(secondController, animated: true)
     }
     
-    @objc func activeAction(sender: UIButton) {
+    @objc private func activeAction(sender: UIButton) {
         switch (sender) {
         case minimumButton:
             minimumButton.alpha = 1
@@ -595,7 +593,7 @@ class CalculatorController: UIViewController {
             print("default")
         }
     }
-    @objc func aimAction(sender: UIButton) {
+    @objc private func aimAction(sender: UIButton) {
         switch (sender) {
         case loseWeightButton:
             loseWeightButton.alpha = 1

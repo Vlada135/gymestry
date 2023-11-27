@@ -42,7 +42,7 @@ class CalendarController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide)
         }
     }
-   
+    
 }
 
 extension CalendarController: UICalendarSelectionSingleDateDelegate {
@@ -52,5 +52,5 @@ extension CalendarController: UICalendarSelectionSingleDateDelegate {
 }
 
 extension CalendarController: UICalendarViewDelegate{
-   
+    
 }

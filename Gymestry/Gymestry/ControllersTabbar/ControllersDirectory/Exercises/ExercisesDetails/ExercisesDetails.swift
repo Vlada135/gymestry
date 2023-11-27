@@ -13,7 +13,6 @@ import Gifu
 class ExercisesDetails: UIViewController {
     
     var exercises: [Exercises] = []
-
     
     var exerciseid: String = ""
     
@@ -112,7 +111,6 @@ class ExercisesDetails: UIViewController {
             guard let contactsDict = (snapshot.value as? [String: Any]) else { return }
             self?.parseData(contactsDict)
         }
-        
     }
     
     func set(list: Exercises) {

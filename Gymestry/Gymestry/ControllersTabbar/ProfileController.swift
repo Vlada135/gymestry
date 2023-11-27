@@ -88,6 +88,7 @@ class ProfileController: UIViewController {
         label.textColor = .black
         label.isUserInteractionEnabled = true
         label.textAlignment = .left
+        label.text = "Гость"
         return label
     }()
     
@@ -97,15 +98,17 @@ class ProfileController: UIViewController {
         label.textColor = .darkGray
         label.isUserInteractionEnabled = true
         label.textAlignment = .left
+        label.text = "Ваш рост"
         return label
     }()
     
-    private lazy var weightLabel: UILabel = {
+    private lazy var ageLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .regular)
         label.textColor = .darkGray
         label.isUserInteractionEnabled = true
         label.textAlignment = .left
+        label.text = "Ваш возраст"
         return label
     }()
     
@@ -150,6 +153,7 @@ class ProfileController: UIViewController {
         )
         return button
     }()
+    
     private lazy var inputField: UITextField = {
         let field = UITextField()
         field.textAlignment = .left
@@ -181,7 +185,6 @@ class ProfileController: UIViewController {
         super.viewWillAppear(animated)
         readList()
     }
- 
     
     private func makeLayout() {
         view.backgroundColor = .white
@@ -200,7 +203,7 @@ class ProfileController: UIViewController {
         profileView.addSubview(nameLabel)
         profileView.addSubview(stack)
         stack.addArrangedSubview(heightLabel)
-        stack.addArrangedSubview(weightLabel)
+        stack.addArrangedSubview(ageLabel)
     }
     
     private func makeConstraints() {
@@ -315,7 +318,7 @@ class ProfileController: UIViewController {
             
             self?.nameLabel.text = contactForEdit.name
             self?.heightLabel.text =  "  Рост: \(contactForEdit.height ?? "") см"
-            self?.weightLabel.text =  "  Возраст: \(contactForEdit.age ?? "")"
+            self?.ageLabel.text =  "  Возраст: \(contactForEdit.age ?? "")"
             
         }
     }

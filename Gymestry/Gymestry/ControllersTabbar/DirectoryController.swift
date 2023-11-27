@@ -10,6 +10,7 @@ import SnapKit
 import UIKit
 
 class DirectoryController: UIViewController {
+    
     var data: [[Directory]] = [[.exercises], [.sporteat], [.info], [.calculator]]
     
     private lazy var collectionView: UICollectionView = {
@@ -27,10 +28,12 @@ class DirectoryController: UIViewController {
         makeLayout()
         makeConstraints()
     }
+    
     private func makeLayout() {
         title = "Cправочник"
         view.addSubview(collectionView)
     }
+    
     private func makeConstraints() {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

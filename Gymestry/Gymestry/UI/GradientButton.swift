@@ -38,13 +38,13 @@ class GradientButton: UIButton {
         layer.insertSublayer(gradientLayer, at: 0)
         
         // Round the button corners
-//        layer.cornerRadius = rect.height / 2
+        //        layer.cornerRadius = rect.height / 2
         clipsToBounds = true
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowRadius = 5
         layer.cornerRadius = 12
-
+        
     }
     
     func updateGradient() {

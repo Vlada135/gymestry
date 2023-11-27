@@ -12,6 +12,7 @@ import FirebaseDatabase
 
 class ExercisesCell: UICollectionViewCell {
     static let id = String(describing: ExercisesCell.self)
+    
     var list: Exercises?
     
     private lazy var mainView: UIView = {
@@ -24,7 +25,7 @@ class ExercisesCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var picture:UIImageView = {
+    private lazy var picture:UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 12
         image.clipsToBounds = true
@@ -32,7 +33,7 @@ class ExercisesCell: UICollectionViewCell {
         return image
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .black
@@ -41,7 +42,7 @@ class ExercisesCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var transitionView: UIImageView = {
+    private lazy var transitionView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(systemName: "chevron.right")
         view.contentMode = .scaleAspectFit
@@ -51,10 +52,12 @@ class ExercisesCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initCell()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -89,18 +92,17 @@ class ExercisesCell: UICollectionViewCell {
             make.centerY.equalTo(mainView.snp.centerY)
         }
     }
+    
     private func initCell() {
         makeLayout()
         makeConstraints()
         self.picture.image = UIImage(systemName: "gear")
-
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         self.picture.image = UIImage(systemName: "gear")
     }
-
     
     private func configure() {
         guard let list else { return }

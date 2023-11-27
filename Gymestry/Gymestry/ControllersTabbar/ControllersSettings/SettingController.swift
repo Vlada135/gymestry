@@ -13,8 +13,9 @@ import PhotosUI
 
 
 class SettingController: UIViewController {
+    
     var list: [[Settings]] = [[.password], [.help], [.notifications], [.feedback], [.logout]]
-   
+    
     private lazy var accountLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .medium)
@@ -24,10 +25,12 @@ class SettingController: UIViewController {
         label.textAlignment = .left
         return label
     }()
+    
     private lazy var accountView: UIView = {
-         let view = UIView()
-         return view
-     }()
+        let view = UIView()
+        return view
+    }()
+    
     private lazy var avatarImageView: UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 40
@@ -77,7 +80,7 @@ class SettingController: UIViewController {
         collection.register(SettingCell.self, forCellWithReuseIdentifier: SettingCell.id)
         return collection
     }()
-  
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         readUserData()
@@ -100,8 +103,9 @@ class SettingController: UIViewController {
         accountView.addSubview(editImage)
         view.addSubview(settingsLabel)
         view.addSubview(collectionView)
-
+        
     }
+    
     private func makeConstraints() {
         accountLabel.snp.makeConstraints{ make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(40)
@@ -152,7 +156,7 @@ class SettingController: UIViewController {
             message: "Вы уверены, что хотите выйти?",
             preferredStyle: .alert
         )
-
+        
         let signOutAction = UIAlertAction(title: "Выйти", style: .destructive) { [weak self] _ in
             self?.signOutAction()
         }
@@ -192,18 +196,16 @@ class SettingController: UIViewController {
     }
     
     func signOutAction() {
-
         do {
             try Auth.auth().signOut()
             if let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
                 scene.setLogIn()
             }
         }
-          catch { print("already logged out") }
-        
+        catch { print("already logged out") }
     }
-
 }
+
 extension SettingController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int  {
         return list.count

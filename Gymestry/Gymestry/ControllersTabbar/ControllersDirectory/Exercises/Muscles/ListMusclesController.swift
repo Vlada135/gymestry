@@ -57,6 +57,7 @@ class ListMusclesController: UIViewController {
         view.addSubview(addButton)
         view.addSubview(collectionView)
     }
+    
     private func makeConstraints() {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

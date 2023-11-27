@@ -12,14 +12,13 @@ class SporteatCell: UICollectionViewCell {
     static let id = String(describing: SporteatCell.self)
     
     var list: Sporteat?
-
     
     private lazy var mainView: UIView = {
         let view = UIView()
         return view
     }()
     
-    lazy var picture:UIImageView = {
+    private lazy var picture:UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 12
         image.clipsToBounds = true
@@ -27,7 +26,7 @@ class SporteatCell: UICollectionViewCell {
         return image
     }()
     
-    lazy var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .black
@@ -36,7 +35,7 @@ class SporteatCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var transitionView: UIImageView = {
+    private lazy var transitionView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(systemName: "chevron.right")
         view.contentMode = .scaleAspectFit
@@ -46,10 +45,12 @@ class SporteatCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initCell()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -57,7 +58,7 @@ class SporteatCell: UICollectionViewCell {
     private func makeLayout() {
         contentView.backgroundColor = .white
         contentView.addSubview(mainView)
-                mainView.addSubview(picture)
+        mainView.addSubview(picture)
         mainView.addSubview(nameLabel)
         mainView.addSubview(transitionView)
     }
@@ -88,11 +89,11 @@ class SporteatCell: UICollectionViewCell {
             make.centerY.equalTo(mainView.snp.centerY)
         }
     }
+    
     private func initCell() {
         makeLayout()
         makeConstraints()
         self.picture.image = UIImage(systemName: "gear")
-        
     }
     
     override func prepareForReuse() {
