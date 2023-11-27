@@ -14,5 +14,7 @@ target 'Gymestry' do
 	pod 'Firebase/Storage'
 	pod 'Realm'
 	pod 'RealmSwift'
+	pod 'Gifu'
+	pod 'Charts'
 
 end

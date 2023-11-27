@@ -28,7 +28,7 @@ class TabBar: UITabBarController {
         controllers.append(UINavigationController(rootViewController: profileVC1))
         profileVC1.tabBarItem = .init(title: "Профиль", image: .init(systemName: "person"), tag: 0)
         
-        let profileVC2 = ProgramController()
+        let profileVC2 = ProgramController(mode: .create)
         controllers.append(UINavigationController(rootViewController: profileVC2))
         profileVC2.tabBarItem = .init(title: "Программа", image: .init(systemName: "dumbbell"), tag: 0)
         

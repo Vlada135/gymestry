@@ -12,22 +12,22 @@ import FirebaseAuth
 
 class RegistrController: UIViewController {
     
-    lazy var mainView: UIImageView = {
+    private lazy var mainView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "login")
         view.alpha = 0.8
         return view
     }()
     
-    lazy var loginView = InputView()
+    private lazy var loginView = InputView()
     
-    lazy var imageView: UIView = {
+    private lazy var imageView: UIView = {
         let view = InputView()
         view.layer.cornerRadius = 50
         return view
     }()
     
-    lazy var image: UIImageView = {
+    private lazy var image: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = 50
@@ -36,7 +36,7 @@ class RegistrController: UIViewController {
         return image
     }()
     
-    lazy var stack: UIStackView = {
+    private lazy var stack: UIStackView = {
         let stack = UIStackView()
         stack.distribution = .fillEqually
         stack.spacing = 5
@@ -44,7 +44,7 @@ class RegistrController: UIViewController {
         return stack
     }()
     
-    lazy var loginLabel: UILabel = {
+    private lazy var loginLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .darkGray
@@ -58,14 +58,14 @@ class RegistrController: UIViewController {
         field.font = .systemFont(ofSize: 12, weight: .regular)
         field.placeholder = "Введите Ваш логин"
         field.textAlignment = .left
-        field.layer.cornerRadius = 20
+        field.layer.cornerRadius = 12
         field.backgroundColor = .systemGray5
         field.leftView = UIView(frame: .init(x: 0, y: 0, width: 10, height: 10))
         field.leftViewMode = .always
         return field
     }()
     
-    lazy var passowrdLabel: UILabel = {
+    private lazy var passowrdLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .darkGray
@@ -79,11 +79,30 @@ class RegistrController: UIViewController {
         field.font = .systemFont(ofSize: 12, weight: .regular)
         field.placeholder = "Введите Ваш пароль"
         field.textAlignment = .left
-        field.layer.cornerRadius = 20
+        field.layer.cornerRadius = 12
         field.backgroundColor = .systemGray5
         field.leftView = UIView(frame: .init(x: 0, y: 0, width: 10, height: 10))
         field.leftViewMode = .always
+        field.rightViewMode = .always
+        field.rightView = eyeButton
+        field.isSecureTextEntry = true
         return field
+    }()
+    
+    private lazy var eyeButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.tintColor = .darkGray
+        button.contentMode = .scaleAspectFill
+        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        button.addTarget(
+            self,
+            action: #selector(showPassword),
+            for: .touchUpInside
+        )
+        var configuration = UIButton.Configuration.plain()
+        configuration.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 10)
+        button.configuration = configuration
+        return button
     }()
     
     private lazy var signInButton: UIButton = {
@@ -120,8 +139,8 @@ class RegistrController: UIViewController {
         stack.addSubview(passowrdLabel)
         stack.addSubview(passwordTextField)
         stack.addSubview(signInButton)
-        
     }
+    
     private func makeConstraints() {
         mainView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -129,10 +148,8 @@ class RegistrController: UIViewController {
         
         loginView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(180)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-180)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(40)
-            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-40)
+            make.height.equalTo(320)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(40)
         }
         imageView.snp.makeConstraints { make in
             make.height.width.equalTo(100)
@@ -143,7 +160,6 @@ class RegistrController: UIViewController {
             make.height.width.equalTo(100)
             make.centerX.equalToSuperview()
             make.bottom.equalTo(loginView.snp.top).offset(60)
-            
         }
         stack.snp.makeConstraints { make in
             make.top.equalTo(loginView.snp.top).offset(75)
@@ -196,6 +212,16 @@ class RegistrController: UIViewController {
             }
         }
         self.navigationController?.pushViewController(LogInController(), animated: true)
+    }
+    
+    @objc private func showPassword(_ sender: UIButton) {
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+        
+        if passwordTextField.isSecureTextEntry{
+            self.eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        } else {
+            self.eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        }
     }
     
 }

@@ -1,5 +1,9 @@
 PODS:
   - CalendarKit (1.1.9)
+  - Charts (4.1.0):
+    - Charts/Core (= 4.1.0)
+  - Charts/Core (4.1.0):
+    - SwiftAlgorithms (~> 1.0)
   - Firebase (10.15.0):
     - Firebase/Core (= 10.15.0)
   - Firebase/Auth (10.15.0):
@@ -65,6 +69,7 @@ PODS:
     - FirebaseCore (~> 10.0)
     - FirebaseCoreExtension (~> 10.0)
     - GTMSessionFetcher/Core (< 4.0, >= 2.1)
+  - Gifu (3.3.1)
   - GoogleAppMeasurement (10.15.0):
     - GoogleAppMeasurement/AdIdSupport (= 10.15.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
@@ -119,13 +124,16 @@ PODS:
     - Realm (= 10.43.1)
   - RecaptchaInterop (100.0.0)
   - SnapKit (5.6.0)
+  - SwiftAlgorithms (1.0.0)
 
 DEPENDENCIES:
   - CalendarKit
+  - Charts
   - Firebase
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
+  - Gifu
   - Realm
   - RealmSwift
   - SnapKit
@@ -133,6 +141,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - CalendarKit
+    - Charts
     - Firebase
     - FirebaseAnalytics
     - FirebaseAppCheckInterop
@@ -144,6 +153,7 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseInstallations
     - FirebaseStorage
+    - Gifu
     - GoogleAppMeasurement
     - GoogleUtilities
     - GTMSessionFetcher
@@ -154,9 +164,11 @@ SPEC REPOS:
     - RealmSwift
     - RecaptchaInterop
     - SnapKit
+    - SwiftAlgorithms
 
 SPEC CHECKSUMS:
   CalendarKit: 0c19eabfc09a6d2b32d2e7fe392e2fe5996622af
+  Charts: ce0768268078eee0336f122c3c4ca248e4e204c5
   Firebase: 66043bd4579e5b73811f96829c694c7af8d67435
   FirebaseAnalytics: 47cef43728f81a839cf1306576bdd77ffa2eac7e
   FirebaseAppCheckInterop: a8c555b1c2db1d9445e6c3a08a848167ddb7eb51
@@ -168,6 +180,7 @@ SPEC CHECKSUMS:
   FirebaseDatabase: f93f1481c7e9e3d77af960cdff82a408d37693e6
   FirebaseInstallations: cae95cab0f965ce05b805189de1d4c70b11c76fb
   FirebaseStorage: 1d4be239ea32fb3c0f3680a6f2b706d6cabe37f2
+  Gifu: 416d4e38c4c2fed012f019e0a1d3ffcb58e5b842
   GoogleAppMeasurement: 722db6550d1e6d552b08398b69a975ac61039338
   GoogleUtilities: 13e2c67ede716b8741c7989e26893d151b2b2084
   GTMSessionFetcher: e8647203b65cee28c5f73d0f473d096653945e72
@@ -178,7 +191,8 @@ SPEC CHECKSUMS:
   RealmSwift: 6be3f27a7fd3f5cc8f99f4b187cc4e7150299e32
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 055e4358bda0ec4c11f45598fd10f187f1ae353a
+PODFILE CHECKSUM: a8aff5215a4b3d81af4c2202028ce39ba9349aba
 
 COCOAPODS: 1.13.0

@@ -11,6 +11,9 @@ import SnapKit
 class SporteatCell: UICollectionViewCell {
     static let id = String(describing: SporteatCell.self)
     
+    var list: Sporteat?
+
+    
     private lazy var mainView: UIView = {
         let view = UIView()
         return view
@@ -20,7 +23,7 @@ class SporteatCell: UICollectionViewCell {
         let image = UIImageView()
         image.layer.cornerRadius = 12
         image.clipsToBounds = true
-        image.contentMode = .scaleAspectFill
+        image.contentMode = .scaleAspectFit
         return image
     }()
     
@@ -28,6 +31,7 @@ class SporteatCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .black
+        label.numberOfLines = 0
         label.isUserInteractionEnabled = true
         return label
     }()
@@ -53,7 +57,7 @@ class SporteatCell: UICollectionViewCell {
     private func makeLayout() {
         contentView.backgroundColor = .white
         contentView.addSubview(mainView)
-        //        mainView.addSubview(picture)
+                mainView.addSubview(picture)
         mainView.addSubview(nameLabel)
         mainView.addSubview(transitionView)
     }
@@ -65,14 +69,14 @@ class SporteatCell: UICollectionViewCell {
             make.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
         }
-        //        picture.snp.makeConstraints{ make in
-        //            make.leading.equalTo(mainView.snp.leading).offset(0)
-        //            make.trailing.equalTo(mainView.snp.trailing).offset(0)
-        //            make.top.equalTo(mainView.snp.top).offset(0)
-        //            make.bottom.equalTo(mainView.snp.bottom).offset(-0)
-        //        }
+        picture.snp.makeConstraints{ make in
+            make.leading.equalTo(mainView.snp.leading)
+            make.top.equalTo(mainView.snp.top)
+            make.bottom.equalTo(mainView.snp.bottom)
+            make.height.width.equalTo(90)
+        }
         nameLabel.snp.makeConstraints{ make in
-            make.leading.equalTo(mainView.snp.leading).offset(10)
+            make.leading.equalTo(picture.snp.trailing).offset(10)
             make.trailing.equalTo(mainView.snp.trailing).offset(-10)
             make.top.equalTo(mainView.snp.top).offset(10)
             make.height.equalTo(20)
@@ -87,8 +91,34 @@ class SporteatCell: UICollectionViewCell {
     private func initCell() {
         makeLayout()
         makeConstraints()
+        self.picture.image = UIImage(systemName: "gear")
+        
     }
-    func set(point: SporteatModel) {
-        nameLabel.text = point.title
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.picture.image = UIImage(systemName: "gear")
+    }
+    
+    private func configure() {
+        guard let list else { return }
+        nameLabel.text = list.sporteat
+        
+        DispatchQueue.global().async { [weak self] in
+            guard let self,
+                  let url = URL(string: list.sporteatImage),
+                  let data = try? Data(contentsOf: url),
+                  let image = UIImage(data: data)
+            else { return }
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                self.picture.image = image
+            }
+        }
+    }
+    
+    func setSporteat(sporteat: Sporteat) {
+        self.list = sporteat
+        configure()
     }
 }

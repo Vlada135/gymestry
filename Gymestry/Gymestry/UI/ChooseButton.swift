@@ -19,11 +19,15 @@ class ChooseButton: UIButton {
     }
     
     private func initView() {
+        self.configuration = .filled()
         self.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        self.layer.cornerRadius = 20
-        self.clipsToBounds = true
+        self.layer.cornerRadius = 12
+        self.clipsToBounds = false
         self.alpha = 0.7
         self.tintColor = .black
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowRadius = 5
     }
     
 }

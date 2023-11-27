@@ -14,11 +14,13 @@ class CalendarController: UIViewController {
     
     lazy var calendarView: UICalendarView = {
         let view = UICalendarView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+        //        view.translatesAutoresizingMaskIntoConstraints = false
         view.calendar = .current
         view.locale = .current
-        view.fontDesign = .default
+        view.fontDesign = .rounded
         view.delegate = self
+        let selection = UICalendarSelectionSingleDate(delegate: self)
+        view.selectionBehavior = selection
         return view
     }()
     
@@ -27,22 +29,28 @@ class CalendarController: UIViewController {
         makeLayout()
         makeConstraints()
     }
+    
     private func makeLayout() {
         view.backgroundColor = .white
         title = "Календарь"
         view.addSubview(calendarView)
     }
+    
     private func makeConstraints() {
         calendarView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.top.equalToSuperview().offset(16)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.top.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+   
+}
+
+extension CalendarController: UICalendarSelectionSingleDateDelegate {
+    func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) {
+        print(dateComponents)
     }
 }
 
 extension CalendarController: UICalendarViewDelegate{
-    func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
-        return nil
-    }
+   
 }

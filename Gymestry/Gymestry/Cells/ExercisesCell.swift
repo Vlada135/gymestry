@@ -7,12 +7,20 @@
 
 import UIKit
 import SnapKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class ExercisesCell: UICollectionViewCell {
     static let id = String(describing: ExercisesCell.self)
+    var list: Exercises?
     
     private lazy var mainView: UIView = {
         let view = UIView()
+        return view
+    }()
+    private lazy var activityIndicator:UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.startAnimating()
         return view
     }()
     
@@ -29,6 +37,7 @@ class ExercisesCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .black
         label.isUserInteractionEnabled = true
+        label.numberOfLines = 0
         return label
     }()
     
@@ -53,29 +62,25 @@ class ExercisesCell: UICollectionViewCell {
     private func makeLayout() {
         contentView.backgroundColor = .white
         contentView.addSubview(mainView)
-        //        mainView.addSubview(picture)
+        mainView.addSubview(picture)
         mainView.addSubview(nameLabel)
         mainView.addSubview(transitionView)
     }
     
     private func makeConstraints() {
         mainView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.top.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-10)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.top.bottom.equalToSuperview().inset(10)
         }
-        //        picture.snp.makeConstraints{ make in
-        //            make.leading.equalTo(mainView.snp.leading).offset(0)
-        //            make.trailing.equalTo(mainView.snp.trailing).offset(0)
-        //            make.top.equalTo(mainView.snp.top).offset(0)
-        //            make.bottom.equalTo(mainView.snp.bottom).offset(-0)
-        //        }
+        picture.snp.makeConstraints{ make in
+            make.leading.equalTo(mainView.snp.leading)
+            make.top.equalTo(mainView.snp.top)
+            make.bottom.equalTo(mainView.snp.bottom)
+            make.height.width.equalTo(90)
+        }
         nameLabel.snp.makeConstraints{ make in
-            make.leading.equalTo(mainView.snp.leading).offset(10)
-            make.trailing.equalTo(mainView.snp.trailing).offset(-10)
-            make.top.equalTo(mainView.snp.top).offset(10)
-            make.height.equalTo(20)
+            make.leading.equalTo(picture.snp.trailing).offset(10)
+            make.trailing.equalTo(transitionView.snp.leading).offset(-5)
             make.centerY.equalTo(mainView.snp.centerY)
         }
         transitionView.snp.makeConstraints{ make in
@@ -87,8 +92,37 @@ class ExercisesCell: UICollectionViewCell {
     private func initCell() {
         makeLayout()
         makeConstraints()
+        self.picture.image = UIImage(systemName: "gear")
+
     }
-    //    func set(point: GroupMusclesModel) {
-    //        nameLabel.text = point.exercises
-    //    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.picture.image = UIImage(systemName: "gear")
+    }
+
+    
+    private func configure() {
+        guard let list else { return }
+        nameLabel.text = list.exercise
+        DispatchQueue.global().async { [weak self] in
+            guard let self,
+                  let url = URL(string: list.exerciseImage ?? ""),
+                  let data = try? Data(contentsOf: url),
+                  let image = UIImage(data: data)
+            else { return }
+            print("1")
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                print("2")
+                self.picture.image = image
+            }
+        }
+    }
+    
+    func setGroup(exercise: Exercises) {
+        self.list = exercise
+        configure()
+    }
 }
+

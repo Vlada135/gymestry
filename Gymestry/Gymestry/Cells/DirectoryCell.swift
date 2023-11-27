@@ -64,22 +64,14 @@ class DirectoryCell: UICollectionViewCell {
     
     private func makeConstraints() {
         mainView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.top.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-10)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.top.bottom.equalToSuperview().inset(10)
         }
         picture.snp.makeConstraints{ make in
-            make.leading.equalTo(mainView.snp.leading).offset(0)
-            make.trailing.equalTo(mainView.snp.trailing).offset(0)
-            make.top.equalTo(mainView.snp.top).offset(0)
-            make.bottom.equalTo(mainView.snp.bottom).offset(-0)
+            make.edges.equalTo(mainView)
         }
         gradientView.snp.makeConstraints{ make in
-            make.leading.equalTo(mainView.snp.leading).offset(0)
-            make.trailing.equalTo(mainView.snp.trailing).offset(0)
-            make.top.equalTo(mainView.snp.top).offset(0)
-            make.bottom.equalTo(mainView.snp.bottom).offset(-0)
+            make.edges.equalTo(mainView)
         }
         nameLabel.snp.makeConstraints{ make in
             make.leading.equalTo(mainView.snp.leading).offset(10)

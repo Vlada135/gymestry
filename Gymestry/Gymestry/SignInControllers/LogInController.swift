@@ -12,22 +12,22 @@ import FirebaseAuth
 
 class LogInController: UIViewController {
     
-    lazy var mainView: UIImageView = {
+    private lazy var mainView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "login")
         view.alpha = 0.8
         return view
     }()
     
-    lazy var loginView = InputView()
+    private lazy var loginView = InputView()
     
-    lazy var imageView: UIView = {
+    private lazy var imageView: UIView = {
         let view = InputView()
         view.layer.cornerRadius = 50
         return view
     }()
     
-    lazy var image: UIImageView = {
+    private lazy var image: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = 50
@@ -36,7 +36,7 @@ class LogInController: UIViewController {
         return image
     }()
     
-    lazy var stack: UIStackView = {
+    private lazy var stack: UIStackView = {
         let stack = UIStackView()
         stack.distribution = .fillEqually
         stack.spacing = 5
@@ -44,7 +44,7 @@ class LogInController: UIViewController {
         return stack
     }()
     
-    lazy var loginLabel: UILabel = {
+    private lazy var loginLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .darkGray
@@ -53,19 +53,20 @@ class LogInController: UIViewController {
         label.textAlignment = .left
         return label
     }()
+    
     lazy var loginTextField: UITextField = {
         let field = UITextField()
         field.font = .systemFont(ofSize: 12, weight: .regular)
         field.placeholder = "Введите Ваш логин"
         field.textAlignment = .left
-        field.layer.cornerRadius = 20
+        field.layer.cornerRadius = 12
         field.backgroundColor = .systemGray5
         field.leftView = UIView(frame: .init(x: 0, y: 0, width: 10, height: 10))
         field.leftViewMode = .always
         return field
     }()
     
-    lazy var passowrdLabel: UILabel = {
+    private lazy var passowrdLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .darkGray
@@ -79,11 +80,31 @@ class LogInController: UIViewController {
         field.font = .systemFont(ofSize: 12, weight: .regular)
         field.placeholder = "Введите Ваш пароль"
         field.textAlignment = .left
-        field.layer.cornerRadius = 20
+        field.layer.cornerRadius = 12
         field.backgroundColor = .systemGray5
         field.leftView = UIView(frame: .init(x: 0, y: 0, width: 10, height: 10))
         field.leftViewMode = .always
+        field.rightViewMode = .always
+        field.rightView = eyeButton
+        field.isSecureTextEntry = true
         return field
+    }()
+    
+    private lazy var eyeButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.tintColor = .darkGray
+        button.contentMode = .scaleAspectFill
+        button.clipsToBounds = true
+        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        button.addTarget(
+            self,
+            action: #selector(showPassword),
+            for: .touchUpInside
+        )
+        var configuration = UIButton.Configuration.plain()
+        configuration.contentInsets = .init(top: 10, leading: 0, bottom: 10, trailing: 10)
+        button.configuration = configuration
+        return button
     }()
     
     private lazy var signInButton: UIButton = {
@@ -100,6 +121,7 @@ class LogInController: UIViewController {
         )
         return button
     }()
+    
     private lazy var ragistrationButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .black
@@ -112,6 +134,16 @@ class LogInController: UIViewController {
         )
         return button
     }()
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        navigationController?.setNavigationBarHidden(true, animated: animated)
+//    }
+////
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        navigationController?.setNavigationBarHidden(false, animated: animated)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,18 +164,16 @@ class LogInController: UIViewController {
         stack.addSubview(passwordTextField)
         stack.addSubview(signInButton)
         stack.addSubview(ragistrationButton)
-        
     }
+    
     private func makeConstraints() {
         mainView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         loginView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(180)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-180)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(40)
-            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-40)
+            make.height.equalTo(350)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(40)
         }
         imageView.snp.makeConstraints { make in
             make.height.width.equalTo(100)
@@ -196,6 +226,7 @@ class LogInController: UIViewController {
             make.trailing.equalTo(stack.snp.trailing).offset(0)
         }
     }
+    
     @objc private func signInAction() {
         guard let login = loginTextField.text,
               let password = passwordTextField.text
@@ -208,11 +239,23 @@ class LogInController: UIViewController {
                 self?.view.backgroundColor = .red
                 return
             }
-            self?.navigationController?.pushViewController(TabBar(), animated: true)
+            if let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                scene.setTabBar()
+            }
         }
     }
+    
     @objc private func registrationAction() {
         self.navigationController?.pushViewController(RegistrController(), animated: true)
     }
     
+    @objc private func showPassword(_ sender: UIButton) {
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+        
+        if passwordTextField.isSecureTextEntry{
+            self.eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        } else {
+            self.eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        }
+    }
 }
