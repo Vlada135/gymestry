@@ -97,6 +97,7 @@ class ProgramController: UIViewController {
             
         }
         self.tableView.reloadData()
+        
     }
     
     private func readList() {
@@ -135,7 +136,7 @@ class ProgramController: UIViewController {
 extension ProgramController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return planExercise.count
+            return planExercise.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
