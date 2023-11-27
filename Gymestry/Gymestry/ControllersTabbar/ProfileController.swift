@@ -98,7 +98,8 @@ class ProfileController: UIViewController {
         label.textColor = .darkGray
         label.isUserInteractionEnabled = true
         label.textAlignment = .left
-        label.text = "Ваш рост"
+        label.numberOfLines = 0
+        label.text = " Ваш рост"
         return label
     }()
     
@@ -108,7 +109,8 @@ class ProfileController: UIViewController {
         label.textColor = .darkGray
         label.isUserInteractionEnabled = true
         label.textAlignment = .left
-        label.text = "Ваш возраст"
+        label.numberOfLines = 0
+        label.text = " Ваш возраст"
         return label
     }()
     
@@ -227,7 +229,7 @@ class ProfileController: UIViewController {
         }
         stack.snp.makeConstraints{ make in
             make.leading.equalTo(profileView.snp.leading).offset(45)
-            make.trailing.equalTo(avatarImageView.snp.leading).offset(-80)
+            make.trailing.equalTo(avatarImageView.snp.leading).offset(-75)
             make.height.equalTo(60)
             make.bottom.equalTo(profileView.snp.bottom).offset(-26)
         }
