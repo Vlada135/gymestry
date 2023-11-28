@@ -124,7 +124,7 @@ class AddProgrammController: UIViewController {
                 dict: answer
             ) else { continue }
             self.exercisesAdd.append(new)
-            self.exercisesAdd.sort(by: {$0.id ?? "" > $1.id ?? ""})
+            self.exercisesAdd.sort(by: {$0.id ?? "" < $1.id ?? ""})
             
             inputNameProgram.text = self.planName
     
