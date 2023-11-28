@@ -91,12 +91,12 @@ class ExerciseProgramCell: UITableViewCell {
     private func initCell() {
         makeLayout()
         makeConstraints()
-        self.picture.image = UIImage(systemName: "gear")
+        self.picture.image = UIImage(named: "activity")
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.picture.image = UIImage(systemName: "gear")
+        self.picture.image = UIImage(named: "activity")
     }
     
     private func configure() {
